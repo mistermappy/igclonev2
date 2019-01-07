@@ -1,5 +1,3 @@
-
-# igClone
 instagram clone
-=======
-# igclonev2
+
+igclonev2
