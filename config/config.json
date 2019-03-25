@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "nppsjuoll",
-    "database": "postgres",
-    "host": "localhost",
+    "username": "mistermappy123",
+    "password": "nppsjuoll760bj5",
+    "database": "igclonev2",
+    "host": "igclonev2.c09ceecqdowl.us-west-1.rds.amazonaws.com",
     "dialect": "postgres"
   },
   "test": {

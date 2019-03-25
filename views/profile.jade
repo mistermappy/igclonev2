@@ -9,8 +9,8 @@ block content
             h3= post.title
             img(src='https://s3-us-west-1.amazonaws.com/igclonev2/' + post.description, id='images')
             form(action='/delete', method='POST')
-                input(type='text', name='postID', value=post.id, class='postID')
-                input(type='submit', value='Delete')
-                input(type='submit', value='Edit')
+                input.btn.btn-primary(type='text', name='postID', value=post.id, class='postID')
+                input.btn.btn-primary(type='submit', value='Delete')
+                input.btn.btn-primary(type='submit', value='Edit')
     else   
         h1 No posts yet 

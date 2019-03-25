@@ -5,7 +5,7 @@ let passport = require('passport');
 let multer = require('multer');
 let aws = require('aws-sdk');
 let multers3 = require('multer-s3');
-aws.config.loadFromPath('./S3/config.json');
+aws.config.loadFromPath('./S3/credentials.json');
 let s3 = new aws.S3();
 let fs = require('fs');
 let SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -89,6 +89,10 @@ router.use(passport.initialize());
 router.use(passport.session());
 
 myStore.sync();
+
+function clicker(){
+    console.log('clicked..')
+}
 
 function compareValues(key, order = 'asc') {
     return function (a, b) {
@@ -214,12 +218,11 @@ router.get('/home', checkAuthentication(), (req, res) => {
         });
         let sortedObj = resObj.sort(compareValues("ideas_id"))
         //console.log(sortedObj);
-        res.render('index', { title: "Instagram", ideas: sortedObj })
+        res.render('index', { title: "Instagram", ideas: sortedObj, clicker : clicker })
     });
 });
 
 router.post('/home', upload.single('imageUpload'), (req, res) => {
-    console.log(req)
     Ideas.create({
         title: req.body.title,
         description: req.file.key,
